@@ -1,0 +1,15 @@
+{
+  "name": "techk",
+  "version": "1.0.0",
+  "description": "Backend test",
+  "main": "index.js",
+  "repository": "https://github.com/techkcl/fullstack",
+  "author": "techkcl",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "3.2.1",
+    "pug-cli": "^1.0.0-alpha6",
+    "select2": "^4.0.6-rc.1",
+  }
+}
