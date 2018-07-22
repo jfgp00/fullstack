@@ -1,5 +1,8 @@
-from django.http import HttpResponse
+from django.views.generic import ListView
+
+from apps.books.models import Book
 
 
-def index(request):
-    return HttpResponse('Hello, world!')
+class BookList(ListView):
+    model = Book
+    template_name = 'index.pug'
