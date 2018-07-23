@@ -15,6 +15,7 @@ block content
               th {% trans 'stock'|capfirst %}
               th {% trans 'product description'|capfirst %}
               th {% trans 'upc'|capfirst %}
+              th {% trans 'delete'|capfirst %}
           tbody
             for book in object_list
               tr
@@ -30,5 +31,8 @@ block content
                   {{book.product_description|truncatechars:30}}
                 td
                   {{book.upc}}
+                td
+                  a(href="{% url 'book_delete' book.id %}") 
+                    i.fa.fa-times
 
       {% include 'includes/pagination.pug' %}

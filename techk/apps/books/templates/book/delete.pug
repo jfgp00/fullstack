@@ -1,0 +1,9 @@
+extends base.pug
+- load i18n
+
+block content
+  form(action='', method='post')
+    {% csrf_token %}
+    p {% trans 'Are you sure you want to delete the item?' %}
+    input.btn.btn-primary(type='submit', value="{% trans 'confirm'|capfirst %}")
+    button.btn.btn-default(onclick='window.history.back();', type='button') {% trans 'cancel'|capfirst %}

@@ -13,6 +13,11 @@ urlpatterns = [
         name='book_detail',
     ),
     url(
+        r'^(?P<book_id>[\d]+)/delete/$',
+        views.BookDeleteView.as_view(),
+        name='book_delete',
+    ),
+    url(
         r'^categories/$',
         views.BookCategoryList.as_view(),
         name='category_list',

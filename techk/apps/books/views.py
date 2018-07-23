@@ -1,7 +1,15 @@
-from django.views.generic import ListView
-from django.shortcuts import get_object_or_404
-from django.views.generic import DetailView
+# -*- coding: utf-8 -*-
+# standard
+from __future__ import unicode_literals
 
+# django
+from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from django.views.generic import DeleteView
+from django.views.generic import DetailView
+from django.views.generic import ListView
+
+# models
 from apps.books.models import Book
 from apps.books.models import BookCategory
 
@@ -66,3 +74,12 @@ class BooksByCategoryList(BaseListView):
 class BookCategoryList(BaseListView):
     model = BookCategory
     template_name = 'category/list.pug'
+
+
+class BookDeleteView(DeleteView):
+    model = Book
+    pk_url_kwarg = 'book_id'
+    template_name = 'book/delete.pug'
+
+    def get_success_url(self):
+        return reverse('book_list')
