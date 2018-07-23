@@ -1,0 +1,36 @@
+extends base.pug
+
+- load i18n
+
+block content
+  .panel.panel-default
+    .panel-body
+      .table-responsive
+        table.table.table-condensed.table-striped
+          tr
+            th {% trans 'category'|capfirst %}
+            td: a(href="{% url 'book_by_category_list' book.category.id %}")
+              | {{book.category}} 
+          tr
+            th {% trans 'title'|capfirst %}
+            td {{book.title}} 
+          tr
+            th {% trans 'thumbnail'|capfirst %}
+            td
+              img(src="{{book.thumbnail}}")
+          tr
+            th {% trans 'price'|capfirst %}
+            td
+              {{book.price}}
+          tr
+            th {% trans 'stock'|capfirst %}
+            td
+              {{book.stock}}
+          tr
+            th {% trans 'product description'|capfirst %}
+            td
+              {{book.product_description}}
+          tr
+            th {% trans 'UPC' %}
+            td
+              {{book.upc}}

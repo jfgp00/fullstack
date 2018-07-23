@@ -1,0 +1,12 @@
+extends base.pug
+
+- load i18n
+
+block content
+  .panel.panel-default
+    .panel-body
+      h1 {% trans 'categories'|capfirst %}
+      ul
+        for object in object_list
+          li: a(href="{% url 'book_by_category_list' object.id %}")
+            | {{object.name}} 

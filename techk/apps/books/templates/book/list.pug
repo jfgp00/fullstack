@@ -19,7 +19,7 @@ block content
           tbody
             for book in object_list
               tr
-                td: a(href="{% url 'category_list' book.category.id %}")
+                td: a(href="{% url 'book_by_category_list' book.category.id %}")
                   | {{book.category}} 
                 td: a(href="{% url 'book_detail' book.id %}")
                   | {{book.title}} 
