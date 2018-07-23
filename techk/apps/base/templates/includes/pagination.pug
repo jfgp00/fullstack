@@ -1,0 +1,22 @@
+.row
+  .col-sm-8.col-sm-offset-2
+    .paginator-container.text-center
+      ul.pagination
+        if page_obj.has_previous
+          li
+            a(href="?page={{ page_obj.previous_page_number }}") «
+        for page in paginator.trimmed_page_range
+          if page == page_obj.number
+            li.active
+              a(href="?page={{ page }}") {{ page }}&nbsp;
+          else
+            li
+              a(href="?page={{ page }}") {{ page }}&nbsp;
+        if page_obj.has_next
+          li
+            a(href="?page={{ page_obj.next_page_number }}") »
+  .col-sm-2
+    strong.text-muted.pull-right
+      | {{ page_obj.start_index }}-{{ page_obj.end_index }}
+      | de {{ paginator.count }}
+      | &nbsp;

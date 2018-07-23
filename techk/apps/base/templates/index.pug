@@ -1,0 +1,21 @@
+extends base.pug
+
+- load i18n
+
+block content
+  h1: a(href="{% url 'category_list' %}")
+    | {% trans 'categories'|capfirst %}
+  if book_exists
+    h1: a(href="{% url 'book_list' %}")
+      | {% trans 'books'|capfirst %}
+  else
+    h1
+      {% trans 'no book exist. scrape books first' %}
+
+  div.form-group
+    button.btn.btn-primary.js-submit-button(
+      type="submit",
+      method="get",
+      action="{% url 'scrape_books' %}",
+    )
+      | {% trans 'scrape books'|capfirst %}
