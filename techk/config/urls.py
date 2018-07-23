@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^books/', include('apps.books.urls')),
+    url(r'^scraper/', include('apps.scraper.urls')),
 ]
